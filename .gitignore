@@ -1,0 +1,273 @@
+# =============================================================================
+# Wifi-Passport project — comprehensive .gitignore
+# Curated from GitHub's Python.gitignore, Global/Windows.gitignore,
+# Global/macOS.gitignore, and Global/Linux.gitignore, plus project specifics.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Project-specific: vaults and secret material — MUST NEVER be committed
+# -----------------------------------------------------------------------------
+# Encrypted vaults are personal; the filename also leaks "I backed up host X".
+*.passport
+*.passport.tmp
+backup/*.passport
+backup/*.passport.tmp
+
+# netsh's plaintext profile exports — these contain cleartext WiFi keys.
+# Never let one of these slip into the repo.
+WiFi-*.xml
+Interface-*.xml
+WLANProfile*.xml
+
+# Generic secret artefacts: SSH keys, X.509, PKCS#12, env files, dotenv.
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.csr
+*.der
+*.jks
+*.keystore
+.env
+.env.*
+!.env.example
+!.env.sample
+*.envrc
+credentials.json
+credentials.yaml
+secrets.json
+secrets.yaml
+secrets.yml
+.secrets
+.netrc
+.aws/
+.gcp/
+.azure/
+
+# -----------------------------------------------------------------------------
+# Python — byte-compiled / optimised / DLL files
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# -----------------------------------------------------------------------------
+# Python — distribution / packaging
+# -----------------------------------------------------------------------------
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller — usually template projects expose these so they can be ignored:
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# -----------------------------------------------------------------------------
+# Python — testing, coverage, profiling
+# -----------------------------------------------------------------------------
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytest-cache-files-*/
+cover/
+*.prof
+*.lprof
+
+# -----------------------------------------------------------------------------
+# Python — translations
+# -----------------------------------------------------------------------------
+*.mo
+*.pot
+
+# -----------------------------------------------------------------------------
+# Python — Jupyter / IPython
+# -----------------------------------------------------------------------------
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# -----------------------------------------------------------------------------
+# Python — version / env managers
+# -----------------------------------------------------------------------------
+.python-version
+Pipfile.lock
+poetry.lock
+.pdm.toml
+.pdm-python
+.pdm-build/
+__pypackages__/
+.uv/
+.uv-cache/
+
+# -----------------------------------------------------------------------------
+# Python — virtual environments
+# -----------------------------------------------------------------------------
+.venv
+.venv-*/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# -----------------------------------------------------------------------------
+# Python — type checkers, linters, formatters
+# -----------------------------------------------------------------------------
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+.pyright/
+.ruff_cache/
+.black_cache/
+
+# -----------------------------------------------------------------------------
+# Python — Cython / Maturin / Mypyc
+# -----------------------------------------------------------------------------
+cython_debug/
+*.pyd
+
+# -----------------------------------------------------------------------------
+# Sphinx docs
+# -----------------------------------------------------------------------------
+docs/_build/
+site/
+
+# -----------------------------------------------------------------------------
+# Editors / IDEs — VS Code
+# -----------------------------------------------------------------------------
+# Never commit VS Code config - it's per-user, per-machine.
+.vscode/
+*.code-workspace
+.history/
+
+# -----------------------------------------------------------------------------
+# Claude Code — per-user session/permission state, never for the repo
+# -----------------------------------------------------------------------------
+.claude/
+
+# -----------------------------------------------------------------------------
+# Editors / IDEs — JetBrains (IntelliJ, PyCharm, etc.)
+# -----------------------------------------------------------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# -----------------------------------------------------------------------------
+# Editors — Sublime, Vim, Emacs, Nano, Kate
+# -----------------------------------------------------------------------------
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*.swn
+*~
+.\#*
+\#*\#
+.netrwhist
+*.kate-swp
+
+# -----------------------------------------------------------------------------
+# Operating systems — Windows
+# -----------------------------------------------------------------------------
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# -----------------------------------------------------------------------------
+# Operating systems — macOS
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# -----------------------------------------------------------------------------
+# Operating systems — Linux
+# -----------------------------------------------------------------------------
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# -----------------------------------------------------------------------------
+# Misc — logs, backups, temp files, archives we don't want tracked by accident
+# -----------------------------------------------------------------------------
+*.log
+*.log.*
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig
+*.rej
+*.old
+
+# Coverage / debugging crash dumps
+core
+core.*
+*.dmp
+
+# OS-level swap, hibernation, page files (defensive — should never be in cwd)
+hiberfil.sys
+pagefile.sys
+swapfile.sys
+
+# -----------------------------------------------------------------------------
+# Local user notes / scratchpad — uncomment if you want them ignored:
+# -----------------------------------------------------------------------------
+# TODO.local.md
+# NOTES.local.md
+# scratch/
