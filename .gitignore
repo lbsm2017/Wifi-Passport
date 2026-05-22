@@ -12,6 +12,7 @@
 *.passport.tmp
 backup/*.passport
 backup/*.passport.tmp
+backup/*.*
 
 # netsh's plaintext profile exports — these contain cleartext WiFi keys.
 # Never let one of these slip into the repo.
